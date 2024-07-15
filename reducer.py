@@ -8,10 +8,12 @@ for line in sys.stdin:
     key, value = data
 
     if previous_key != None and previous_key != key:
-        sys.stdout.write("{0}\t{1}\n".format(previous_key, sum_of_values))
+        if sum_of_values > 114:
+            sys.stdout.write("{0}\t{1}\n".format(previous_key, sum_of_values))
         sum_of_values = 0
 
     sum_of_values += 1
     previous_key = key
 
-sys.stdout.write("{0}\t{1}\n".format(previous_key, sum_of_values))
+if sum_of_values > 114:
+    sys.stdout.write("{0}\t{1}\n".format(previous_key, sum_of_values))
